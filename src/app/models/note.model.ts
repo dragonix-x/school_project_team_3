@@ -3,7 +3,7 @@ export class Note {
       public id?:String,
       public title?:String,
       public content?:String,
-      public date?:Number
+      public date?:String
   ) {
   }
 }

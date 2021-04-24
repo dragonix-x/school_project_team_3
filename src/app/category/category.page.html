@@ -1,9 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>category</ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button menuId="main-menu"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Categories</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{categoriesList[0].title}}</ion-card-title>
+          </ion-card-header>
 
+          <ion-img [src]="categoriesList[0].imageUrl"></ion-img>
+
+          <ion-card-content>
+            <p>{{categoriesList[0].description}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <ion-slides>
+          <ion-slide *ngFor="let categorieItem of categoriesList" [routerLink]="['./',categorieItem.id]" >
+            <ion-card>
+              <ion-card-header>
+                <ion-card-title>{{categorieItem.title}}</ion-card-title>
+              </ion-card-header>
+
+              <ion-card-content>
+                <p>Courses:{{categorieItem.courses.length}}</p>
+              </ion-card-content>
+
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

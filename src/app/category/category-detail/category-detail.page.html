@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/category"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{selectedCategorieItem.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+         <ion-img [src]="selectedCategorieItem.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2">
+        <div class="">
+          <h3>Category description</h3>
+          <p>{{selectedCategorieItem.description}}</p>
+        </div>
+
+        <ion-list>
+          <ion-item detail *ngFor = "let course of selectedCategorieItem.courses" [routerLink]="['./',course.id]">
+            <ion-thumbnail slot="start">
+              <ion-img [src]="course.imageUrl"></ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <h2>{{course.title}}</h2>
+              <p>{{course.description}}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>
